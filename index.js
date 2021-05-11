@@ -17,10 +17,16 @@ function changeColors(){
 
 function addColor () {
     const userInput = document.querySelector(".colorInput");
-    document.querySelector("body").style.backgroundColor = userInput.value;
-    colors.push(userInput.value);
+    if(colors.indexOf(userInput.value) === -1) {
+        document.querySelector("body").style.backgroundColor = userInput.value;
+        colors.push(userInput.value);
+        userInput.value = "";
+        userInput.focus();
+        
+    } else {
+        alert("The color is already there");
+    }
 
-    //console.log(userInput.value)
 }
 
 
