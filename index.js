@@ -1,4 +1,25 @@
-const colors = ["red", "yellow", "purple", "blue", "green"];
+const colors = [
+    {
+        name:"red",
+        motto:"Rose Red",
+    }, 
+    {
+        name:"gray",
+        motto:"Smoke Gray",
+    }, 
+    {
+        name:"purple",
+        motto:"Deep Purple",
+    }, 
+    {
+        name:"blue",
+        motto:"Ocean Blue",
+    }, 
+    {
+        name:"green",
+        motto:"Grass Green",
+    }
+];
 
 const randomColorButton = document.querySelector("#randomColorButton");
 const addColorButton = document.querySelector("#setColorButton");
@@ -8,11 +29,14 @@ addColorButton.addEventListener("click", addColor)
 
 function changeColors(){
     const randomIndex = Math.floor(Math.random() * colors.length);
-    document.querySelector("#colorName").innerText = colors[randomIndex];
-    document.querySelector("body").style.backgroundColor = colors[randomIndex];
+
+    console.log(randomIndex);
+    document.querySelector("#colorName").innerText = colors[randomIndex].name;
+    document.querySelector("#colorDesc").innerText = colors[randomIndex].motto;
+    document.querySelector("body").style.backgroundColor = colors[randomIndex].name;
 
 
-    console.log(colors[randomIndex]);
+    console.log(colors[randomIndex].motto);
 }
 
 function addColor () {
