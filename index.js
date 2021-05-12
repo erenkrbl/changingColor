@@ -41,9 +41,22 @@ function changeColors(){
 
 function addColor () {
     const userInput = document.querySelector(".colorInput");
-    if(colors.indexOf(userInput.value) === -1) {
-        document.querySelector("body").style.backgroundColor = userInput.value;
-        colors.push(userInput.value);
+    const colorData = userInput.value.split(":");
+
+    const colorObject = {
+        name: colorData[0],
+        motto: colorData[1], 
+    };
+    // indexOf sadece flat array (["red", "green", "blue"]) geçerlidir.
+    // findIndex object arraylede geçerli
+    if(colors.findIndex((color) => color.name === colorObject.name) === -1) {
+        document.querySelector("body").style.backgroundColor = colorObject.name;
+        document.querySelector("#colorName").innerText = colorObject.name;
+        document.querySelector("#colorDesc").innerText = colorObject.motto;
+        console.log(colorObject.motto);
+        
+        
+        colors.push(colorObject);
         userInput.value = "";
         userInput.focus();
         
