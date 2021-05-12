@@ -49,7 +49,8 @@ function addColor () {
     };
     // indexOf sadece flat array (["red", "green", "blue"]) geçerlidir.
     // findIndex object arraylede geçerli
-    if(colors.findIndex((color) => color.name === colorObject.name) === -1) {
+    const searchedColorIndex = colors.findIndex((color) => color.name === colorObject.name);
+    if(searchedColorIndex === -1) {
         document.querySelector("body").style.backgroundColor = colorObject.name;
         document.querySelector("#colorName").innerText = colorObject.name;
         document.querySelector("#colorDesc").innerText = colorObject.motto;
